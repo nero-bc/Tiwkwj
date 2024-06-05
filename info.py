@@ -38,9 +38,9 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "pcmovies")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'leo_files')
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://pcmovies:pcmovies@cluster0.4vv9ebl.mongodb.net/?retryWrites=true&w=majority")
 DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://Fahadh:Fahadh@cluster0.cpeyano.mongodb.net/")
-DATABASE_URI3 = environ.get('DATABASE_URI3', "")
-DATABASE_URI4 = environ.get('DATABASE_URI4', "")
-DATABASE_URI5 = environ.get('DATABASE_URI5', "")
+DATABASE_URI3 = environ.get('DATABASE_URI3', "mongodb+srv://Ramanan:Ramanan@cluster0.lvbe2wu.mongodb.net/")
+DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://Renamebotv6:Renamebotv6@cluster0.xuqjwfh.mongodb.net/")
+DATABASE_URI5 = environ.get('DATABASE_URI5', "mongodb+srv://renamebotv5:renamebotv5@cluster0.h28sspp.mongodb.net/")
                             
 # FSUB
 auth_channel = environ.get('AUTH_CHANNEL')
