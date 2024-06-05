@@ -15,9 +15,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', '20860011'))
-API_HASH = environ.get('API_HASH', '8523438cd39e124dfe7038a1eb5b5873')
-BOT_TOKEN = environ.get('BOT_TOKEN', '7198004761:AAGn7unUOClwlXuZNSCCzPwI0BAffvIY-0I')
+API_ID = int(environ.get('API_ID', ''))
+API_HASH = environ.get('API_HASH', '')
+BOT_TOKEN = environ.get('BOT_TOKEN', '')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -36,11 +36,11 @@ AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 # MongoDB information
 DATABASE_NAME = environ.get('DATABASE_NAME', "leo")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'leo_files')
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://afb:afb@cluster0.go5icc6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://fdb1:fdb1@cluster0.aqjoji5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_URI3 = environ.get('DATABASE_URI3', "mongodb+srv://fdb2:fdb2@cluster0.pkuzmc1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://al4:al4@cluster0.lkgmaaw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_URI5 = environ.get('DATABASE_URI5', "mongodb+srv://al5:al5@cluster0.yysyett.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "")
+DATABASE_URI3 = environ.get('DATABASE_URI3', "")
+DATABASE_URI4 = environ.get('DATABASE_URI4', "")
+DATABASE_URI5 = environ.get('DATABASE_URI5', "")
                             
 # FSUB
 auth_channel = environ.get('AUTH_CHANNEL')
