@@ -38,9 +38,9 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "anuragam")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'leo_files')
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://anuragam:anuragam@cluster0.p5xynbv.mongodb.net/")
 DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://Nikhil:Nikhil@cluster0.vthhwdw.mongodb.net/")
-DATABASE_URI3 = environ.get('DATABASE_URI3', "mongodb+srv://Nikhilav2:Nikhilav2@cluster0.0ouwunz.mongodb.net/")
-DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://Nikhilav3:Nikhilav3@cluster0.gdwmli1.mongodb.net/")
-DATABASE_URI5 = environ.get('DATABASE_URI5', "mongodb+srv://Nikhilav4:Nikhilav4@cluster0.harzihg.mongodb.net/")
+DATABASE_URI3 = environ.get('DATABASE_URI3', "mongodb+srv://Nikhilav2:Nikhilav2@cluster0.0ouwunz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://renamebotv22:renamebotv22@cluster0.oe3fvkh.mongodb.net/")
+DATABASE_URI5 = environ.get('DATABASE_URI5', "mongodb+srv://Nikhilav4:Nikhilav4@cluster0.harzihg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
                             
 # FSUB
 auth_channel = environ.get('AUTH_CHANNEL')
