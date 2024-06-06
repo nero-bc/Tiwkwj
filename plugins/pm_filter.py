@@ -586,6 +586,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "winfo":
         await query.answer("𝑪𝑶𝑶𝑴𝑰𝑵𝑮 𝑺𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑵...!!", show_alert=True)
+
+    elif query.data == "mfna":
+        await query.answer(text=script.MFNA, show_alert=True)
         
     elif query.data == "pages":
         await query.answer()
