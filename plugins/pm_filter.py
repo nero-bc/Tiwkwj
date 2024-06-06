@@ -623,9 +623,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🕹 𝑴𝒂𝒏𝒖𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓', 'mfna'),
             InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 💡', callback_data='autofilter')
         ], [
-            InlineKeyboardButton('📡𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'qinfo'),
-            InlineKeyboardButton('📌𝑷𝒊𝒏', 'qinfo'),
-            InlineKeyboardButton('𝑷𝒖𝒓𝒈𝒆🗑️', 'winfo')
+            InlineKeyboardButton('📡 𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'qinfo'),
+            InlineKeyboardButton('📌 𝑷𝒊𝒏', 'qinfo'),
+            InlineKeyboardButton('𝑷𝒖𝒓𝒈𝒆 🗑️', 'winfo')
         ], [
             InlineKeyboardButton('🛜 𝑺𝒑𝒆𝒆𝒅', 'qinfo'),
             InlineKeyboardButton('🤐 𝑴𝒖𝒕𝒆', 'qinfo'),
