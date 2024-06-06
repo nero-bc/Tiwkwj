@@ -27,6 +27,8 @@ fclient = pymongo.MongoClient(DATABASE_URI)
 fdb = fclient[DATABASE_NAME]
 fcol = fdb['forward']
 
+REACTIONS = ["🔥", "❤️", "😍", "⚡"]
+
 BATCH_FILES = {}
 
 DELETE_TXT = """𝗪𝗮𝗿𝗻𝗶𝗻𝗴 ⚠️
@@ -39,15 +41,16 @@ DELETE_TXT = """𝗪𝗮𝗿𝗻𝗶𝗻𝗴 ⚠️
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
+    await message.react(emoji=random.choice(REACTIONS))
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('💌 𝚄𝚙𝚍𝚊𝚝𝚎𝚜', url='https://t.me/Cinema_kottaka_2')
+                InlineKeyboardButton('🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥', url=f'https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS')
             ],
             [
-                InlineKeyboardButton('ℹ️ 𝙷𝚎𝚕𝚙', url=f"https://t.me/{temp.U_NAME}?start=help"),
+                InlineKeyboardButton('⭕️𝗚𝗘𝗧 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗟𝗜𝗡𝗞𝗦 ⭕️', url="https://t.me/ARAKAL_THERAVAD_GROUP_LINKS"),
             ]
-            ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/8769ANURAG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
@@ -76,9 +79,10 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🪬 𝑨𝒃𝒐𝒖𝒕 🪬', callback_data='about')
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_text(       
-            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+        reply_markup = InlineKeyboardMarkup(buttons)      
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -104,9 +108,10 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🪬 𝑨𝒃𝒐𝒖𝒕 🪬', callback_data='about')
         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_text(       
-            text=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+        reply_markup = InlineKeyboardMarkup(buttons)      
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
