@@ -587,8 +587,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "winfo":
         await query.answer("𝑪𝑶𝑶𝑴𝑰𝑵𝑮 𝑺𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑵...!!", show_alert=True)
 
-    elif query.data == "mfna":
-        await query.answer(text=script.MFNA, show_alert=True)
+    elif query.data == "auft":
+        await query.answer(text=script.AUFT, show_alert=True)
         
     elif query.data == "pages":
         await query.answer()
@@ -630,7 +630,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('🕹 𝑴𝒂𝒏𝒖𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓', 'mfna'),
-            InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 💡', callback_data='autofilter')
+            InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 💡', 'auft')
         ], [
             InlineKeyboardButton('📡 𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'qinfo'),
             InlineKeyboardButton('📌 𝑷𝒊𝒏', 'winfo'),
