@@ -587,8 +587,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "winfo":
         await query.answer("𝑪𝑶𝑶𝑴𝑰𝑵𝑮 𝑺𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑵...!!", show_alert=True)
 
-    elif query.data == "auft":
-        await query.answer(text=script.AUFT, show_alert=True)
+    elif query.data == "qinfo":
+        await query.answer("𝑮𝒍𝒐𝒃𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓𝒔 𝒊𝒔 𝑪𝒖𝒓𝒓𝒆𝒏𝒕𝒍𝒚 𝑫𝒊𝒔𝒂𝒃𝒍𝒆𝒅..!!", show_alert=True)
+
+    elif query.data == "sped":
+        await query.answer("𝟏𝟖𝟎 𝑴𝑩𝒔", show_alert=True)
+
+
         
     elif query.data == "pages":
         await query.answer()
@@ -632,7 +637,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🕹 𝑴𝒂𝒏𝒖𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓', 'mfna'),
             InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 📥', callback_data='autofilter')
         ],[            
-            InlineKeyboardButton('🛡 Gʟᴏʙᴀʟ Fɪʟᴛᴇʀs', 'qinfo'),
+            InlineKeyboardButton('🌏 𝑮𝒍𝒐𝒃𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓𝒔', 'qinfo'),
             InlineKeyboardButton('⟸ 𝑩𝒂𝒄𝒌', callback_data='help')
         ]]
         
@@ -656,7 +661,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('📌 𝑷𝒊𝒏', 'winfo'),
             InlineKeyboardButton('𝑷𝒖𝒓𝒈𝒆 🗑️', 'winfo')
         ], [
-            InlineKeyboardButton('🛜 𝑺𝒑𝒆𝒆𝒅', 'qinfo'),
+            InlineKeyboardButton('🛜 𝑺𝒑𝒆𝒆𝒅', 'sped'),
             InlineKeyboardButton('🤐 𝑴𝒖𝒕𝒆', 'winfo'),
             InlineKeyboardButton('𝑲𝒊𝒄𝒌❌', 'winfo')
         ], [
