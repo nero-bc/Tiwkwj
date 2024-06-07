@@ -627,10 +627,30 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         ) 
-    elif query.data == "help":
+    elif query.data == "filters":
         buttons = [[
             InlineKeyboardButton('🕹 𝑴𝒂𝒏𝒖𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓', 'mfna'),
-            InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 💡', 'auft')
+            InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 📥', callback_data='autofilter')
+        ],[            
+            InlineKeyboardButton('🛡 Gʟᴏʙᴀʟ Fɪʟᴛᴇʀs', 'qinfo'),
+            InlineKeyboardButton('⟸ 𝑩𝒂𝒄𝒌', callback_data='help')
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.ALL_FILTERS.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+    elif query.data == "help":
+        buttons = [[
+            InlineKeyboardButton('💡 𝒇𝒊𝒍𝒕𝒆𝒓𝒔', callback_data='filters')          
         ], [
             InlineKeyboardButton('📡 𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'qinfo'),
             InlineKeyboardButton('📌 𝑷𝒊𝒏', 'winfo'),
