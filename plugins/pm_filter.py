@@ -666,7 +666,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "autofilter":
         buttons = [[
-            InlineKeyboardButton('⟸ 𝑩𝒂𝒄𝒌', callback_data='help')
+            InlineKeyboardButton('⬅️ 𝑩𝒂𝒄𝒌', callback_data='help')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
@@ -680,9 +680,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "stats":
-        await query.message.edit_text("Fetching MongoDb DataBase")
-        buttons = [[ 
-            InlineKeyboardButton('🏠 Home', callback_data='start')          
+        await query.message.edit_text("ᴡᴀɪᴛ.....")
+        buttons = [[            
+            InlineKeyboardButton('🪬 𝑯𝒐𝒎𝒆 🪬', callback_data='start')
+        ], [
+            InlineKeyboardButton('⬅️ 𝑩𝒂𝒄𝒌', callback_data='help'),
+            InlineKeyboardButton('𝑪𝒍𝒐𝒔𝒆✖️', callback_data='close_data')            
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         tot1 = await Media2.count_documents()
