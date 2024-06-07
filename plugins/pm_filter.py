@@ -593,6 +593,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "sped":
         await query.answer("𝟏𝟖𝟎 𝑴𝑩𝒔", show_alert=True)
 
+    elif query.data == "ctex":
+        await query.answer("© 𝑨𝑹𝑨𝑲𝑨𝑳 𝑻𝑯𝑬𝑹𝑨𝑽𝑨𝑫 𝑴𝑶𝑽𝑰𝑬𝑺 𝑶𝑵𝑳𝒀...", show_alert=True)
+
+
 
         
     elif query.data == "pages":
@@ -638,7 +642,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🌏 𝑮𝒍𝒐𝒃𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓𝒔', 'qinfo'),
             InlineKeyboardButton('𝑨𝒖𝒕𝒐 𝒇𝒊𝒍𝒕𝒆𝒓 📥', callback_data='autofilter')
         ], [
-            InlineKeyboardButton('📡 𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'qinfo'),
+            InlineKeyboardButton('📡 𝑪𝒐𝒏𝒏𝒆𝒄𝒕𝒊𝒐𝒏', 'ctex'),
             InlineKeyboardButton('📌 𝑷𝒊𝒏', 'winfo'),
             InlineKeyboardButton('𝑷𝒖𝒓𝒈𝒆 🗑️', 'winfo')
         ], [
@@ -646,7 +650,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🤐 𝑴𝒖𝒕𝒆', 'winfo'),
             InlineKeyboardButton('𝑲𝒊𝒄𝒌❌', 'winfo')
         ], [
-            InlineKeyboardButton('⚒ 𝑹𝒆𝒑𝒐𝒓𝒕', 'qinfo'),            
+            InlineKeyboardButton('⚒ 𝑹𝒆𝒑𝒐𝒓𝒕', 'winfo'),            
             InlineKeyboardButton('𝑬𝒙𝒕𝒓𝒂 📟', 'winfo')
         ], [            
             InlineKeyboardButton('📈 𝑺𝒕𝒂𝒕𝒖𝒔', callback_data='stats')
