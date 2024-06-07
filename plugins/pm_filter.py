@@ -648,9 +648,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('⚒ 𝑹𝒆𝒑𝒐𝒓𝒕', 'qinfo'),            
             InlineKeyboardButton('𝑬𝒙𝒕𝒓𝒂 📟', 'winfo')
+        ], [            
+            InlineKeyboardButton('📈 𝑺𝒕𝒂𝒕𝒖𝒔', callback_data='stats')
         ], [
-            InlineKeyboardButton('♻️ Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('📈 Sᴛᴀᴛᴜs', callback_data='stats')
+            InlineKeyboardButton('⟸ 𝑩𝒂𝒄𝒌', callback_data='start'),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
@@ -665,7 +666,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "autofilter":
         buttons = [[
-            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
+            InlineKeyboardButton('⟸ 𝑩𝒂𝒄𝒌', callback_data='help')
         ]]
         await client.edit_message_media(
             query.message.chat.id, 
