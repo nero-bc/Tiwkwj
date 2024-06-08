@@ -25,9 +25,14 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 BUTTONS = {}
-LANGUAGES = ["mal", "tam", "eng", "hin", "tel", "kan"]
 SPELL_CHECK = {}
 
+# Choose Option Settings 
+LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin", "telugu", "tel", "kannada", "kan"]
+SEASONS = ["season 1", "season 2", "season 3", "season 4", "season 5", "season 6", "season 7", "season 8", "season 9", "season 10"]
+EPISODES = ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "E14", "E15", "E16", "E17", "E18", "E19", "E20", "E21", "E22", "E23", "E24", "E25", "E26", "E27", "E28", "E29", "E30", "E31", "E32", "E33", "E34", "E35", "E36", "E37", "E38", "E39", "E40"]
+QUALITIES = ["360p", "480p", "720p", "1080p", "1440p", "2160p"]
+YEARS = ["1900", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"]
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filters(client, message):
@@ -99,8 +104,22 @@ async def next_page(bot, query):
     
     btn.insert(0, 
         [
-           InlineKeyboardButton("💌 ɢʀᴏᴜᴘ", url='https://t.me/Cinema_Kottaka_updates'),
-           InlineKeyboardButton("🌐 ʟᴀɴɢᴜᴀɢᴇs 🌐", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐈𝐍𝐒𝐓𝐆𝐑𝐀𝐌🔺", url='https://t.me/Cinema_Kottaka_updates')
+        ]
+    )
+    btn.insert(1, 
+        [
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+        ]
+    )
+    btn.insert(2, 
+        [
+           InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
     )
 
@@ -170,29 +189,33 @@ async def advantage_spoll_choker(bot, query):
 @Client.on_callback_query(filters.regex(r"^languages#"))
 async def languages_cb_handler(client: Client, query: CallbackQuery):
 
-    if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
-        return await query.answer(
-            f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
-            show_alert=True,
-        )
-    
+    try:
+        if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
+            return await query.answer(
+                f"⚠️ ʜᴇʟʟᴏ{query.from_user.first_name},\nᴛʜɪꜱ ɪꜱ ɴᴏᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ʀᴇQᴜᴇꜱᴛ,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...",
+                show_alert=True,
+            )
+    except:
+        pass
     _, search, key = query.data.split("#")
-
-    btn = [
-        [
+    btn = []
+    for i in range(0, len(LANGUAGES)-1, 2):
+        btn.append([
             InlineKeyboardButton(
-                text=lang.title(),
-                callback_data=f"fl#{lang.lower()}#{search}#{key}"
-                ),
-        ]
-        for lang in LANGUAGES
-    ]
+                text=LANGUAGES[i].title(),
+                callback_data=f"fl#{LANGUAGES[i].lower()}#{search}#{key}"
+            ),
+            InlineKeyboardButton(
+                text=LANGUAGES[i+1].title(),
+                callback_data=f"fl#{LANGUAGES[i+1].lower()}#{search}#{key}"
+            ),
+        ])
 
     btn.insert(
         0,
         [
             InlineKeyboardButton(
-                text="☟  ꜱᴇʟᴇᴄᴛ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇꜱ  ☟", callback_data="selectlang"
+                text="☟  ꜱᴇʟᴇᴄᴛ ʏᴏᴜʀ ʟᴀɴɢᴜᴀɢᴇꜱ  ☟", callback_data="ident"
             )
         ],
     )
@@ -201,13 +224,12 @@ async def languages_cb_handler(client: Client, query: CallbackQuery):
     btn.append([InlineKeyboardButton(text="↺ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ↻", callback_data=f"next_{req}_{key}_{offset}")])
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
-
-
+    
 @Client.on_callback_query(filters.regex(r"^fl#"))
 async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     _, lang, search, key = query.data.split("#")
 
-    search = search.replace("_", " ")
+    search1 = search.replace("_", " ")
     req = query.from_user.id
     chat_id = query.message.chat.id
     message = query.message
@@ -217,9 +239,9 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             show_alert=True,
         )
 
-    search = f"{search} {lang}" 
-    
-    files, offset, _ = await get_search_results(search, max_results=10)
+    search = f"{search1} {lang}" 
+    BUTTONS[key] = search
+    files, offset, total = await get_search_results(search, max_results=8)
     files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
@@ -247,17 +269,32 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                 ),
             ]
             for file in files
-        ]    
-    offset = 0
-    btn.append(        [
-            InlineKeyboardButton(
-                text="↺ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ↻",
-                callback_data=f"next_{req}_{key}_{offset}"
-                ),
-        ])
-
-
-    await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
+        ]
+    btn.insert(0, 
+        [
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐈𝐍𝐒𝐓𝐆𝐑𝐀𝐌🔺", url='https://t.me/Cinema_Kottaka_updates')
+        ]
+    )
+    btn.insert(1, 
+        [
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+        ]
+    )
+    btn.insert(2, 
+        [
+           InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
+        ]
+    )
+    if offset != "":
+        btn.append(
+            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total)/8)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+        )
+    await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -835,8 +872,22 @@ async def auto_filter(client, msg, spoll=False):
         ]
     btn.insert(0, 
         [
-           InlineKeyboardButton("💌 ɢʀᴏᴜᴘ", url='https://t.me/Cinema_Kottaka_updates'),
-           InlineKeyboardButton("🌐 ʟᴀɴɢᴜᴀɢᴇs 🌐​", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
+           InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐈𝐍𝐒𝐓𝐆𝐑𝐀𝐌🔺", url='https://t.me/Cinema_Kottaka_updates')
+        ]
+    )
+    btn.insert(1, 
+        [
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
+        ]
+    )
+    btn.insert(2, 
+        [
+           InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
     )
     if offset != "":
