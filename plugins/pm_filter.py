@@ -207,7 +207,7 @@ async def years_cb_handler(client: Client, query: CallbackQuery):
                 row.append(
                     InlineKeyboardButton(
                         text=YEARS[i+j].title(),
-                        callback_data=f"fy#{YEARS[i+j].lower()}#{key}"
+                        callback_data=f"fy#{YEARS[i+j].lower()}#{search}#{key}"
                     )
                 )
         btn.append(row)
