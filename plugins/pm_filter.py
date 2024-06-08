@@ -239,8 +239,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             show_alert=True,
         )
 
-    search = f"{search1} {lang}" 
-    BUTTONS[key] = search
+    search = f"{search1} {lang}"     
     files, offset, total = await get_search_results(search, max_results=8)
     files = [file for file in files if re.search(lang, file.file_name, re.IGNORECASE)]
     if not files:
@@ -270,6 +269,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
             ]
             for file in files
         ]
+    BUTTONS[key] = search
     btn.insert(0, 
         [
            InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
