@@ -26,6 +26,7 @@ logger.setLevel(logging.ERROR)
 
 BUTTONS = {}
 SPELL_CHECK = {}
+SEASON = {}
 
 # Choose Option Settings 
 LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin", "telugu", "tel", "kannada", "kan"]
@@ -309,7 +310,7 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
             )
     except:
         pass
-    _, files, season, search, key = query.data.split("#")
+    _, season, search, key = query.data.split("#")
     btn = []
     for i in range(0, len(EPISODES)-1, 4):
         row = []
@@ -318,7 +319,7 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
                 row.append(
                     InlineKeyboardButton(
                         text=EPISODES[i+j].title(),
-                        callback_data=f"fe#{EPISODES[i+j].lower()}#{files}#{season}#{search}#{key}"
+                        callback_data=f"fe#{EPISODES[i+j].lower()}#{season}#{search}#{key}"
                     )
                 )
         btn.append(row)
@@ -340,11 +341,12 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
 
 @Client.on_callback_query(filters.regex(r"^fe#"))
 async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
-    _, episode, files, season, search, key = query.data.split("#")    
+    _, episode, season, search, key = query.data.split("#")    
     req = query.from_user.id
     chat_id = query.message.chat.id
     message = query.message
     episode_number = int(episode.split()[1])
+    files = SEASON.get(key)
     search_terms = [
         f"e{episode_number}", f"e {episode_number}", f"e{episode_number:02d}", f"e {episode_number:02d}",
         f"ep{episode_number}", f"ep {episode_number}", f"ep{episode_number:02d}", f"ep {episode_number:02d}",
@@ -512,7 +514,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(1, 
         [
            InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"episode#{files1}#{season}#{search}#{key}")
+           InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"episode#{season}#{search}#{key}")
         ]
     )
     btn.insert(2, 
@@ -526,7 +528,8 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ​↭", callback_data=f"next_{req}_{key}_{offset}")])
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
-    
+    SEASON[key] = files1
+
 @Client.on_callback_query(filters.regex(r"^qualities#"))
 async def qualities_cb_handler(client: Client, query: CallbackQuery):
 
