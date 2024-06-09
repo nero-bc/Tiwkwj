@@ -514,13 +514,13 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(1, 
         [
            InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{season}#{search}#{key}")
+           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
         ]
     )
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{season}#{search}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀꜱ", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
     )
