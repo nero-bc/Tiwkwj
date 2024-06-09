@@ -475,7 +475,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     
     files, offset, total = await get_search_results(search1, max_results=50)
     files1 = [file for file in files if any(re.search(term, file.file_name, re.IGNORECASE) for term in search_terms)]
-    files = files1[:10]  
+    files = files1[:9]  
     if not files:
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
@@ -512,7 +512,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(1, 
         [
            InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"seasons#{files}#{season}#{search}#{key}")
+           InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"episode#{files1}#{season}#{search}#{key}")
         ]
     )
     btn.insert(2, 
