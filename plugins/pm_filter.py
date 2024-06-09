@@ -477,8 +477,9 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         f"season {season_number}", f"season {season_number:02d}"
     ]
     
-    files, offset, total = await get_search_results(search1, max_results=8)
+    files, offset, total = await get_search_results(search1, max_results=50)
     files = [file for file in files if any(re.search(term, file.file_name, re.IGNORECASE) for term in search_terms)]
+    files = files[:10]  
     if not files:
         await query.answer("🚫 𝗡𝗼 𝗙𝗶𝗹𝗲 𝗪𝗲𝗿𝗲 𝗙𝗼𝘂𝗻𝗱 🚫", show_alert=1)
         return
