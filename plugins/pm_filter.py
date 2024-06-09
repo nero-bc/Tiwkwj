@@ -528,14 +528,9 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
            InlineKeyboardButton("ʏᴇᴀʀꜱ", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
     )
-    if offset != "":
-        btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total)/8)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
-        )
-    else:
-        btn.append(
-            [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄ꜱ 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
-        )
+    offset = 0
+    btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ​↭", callback_data=f"next_{req}_{key}_{offset}")])
+
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     
 @Client.on_callback_query(filters.regex(r"^qualities#"))
