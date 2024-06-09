@@ -488,14 +488,13 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     search1 = search
     search2 = search
     search = f"{search} {seas}"
-    BUTTONS0[key] = search
     
-    files, offset, total = await get_search_results(search, max_results=8)
+    files, offset, total = await get_search_results(search, max_results=20)
     files = [file for file in files if re.search(seas, file.file_name, re.IGNORECASE)]
     
     seas1 = "s01" if seas == "season 1" else "s02" if seas == "season 2" else "s03" if seas == "season 3" else "s04" if seas == "season 4" else "s05" if seas == "season 5" else "s06" if seas == "season 6" else "s07" if seas == "season 7" else "s08" if seas == "season 8" else "s09" if seas == "season 9" else "s10" if seas == "season 10" else ""
     search1 = f"{search1} {seas1}"
-    BUTTONS1[key] = search1
+    
     files1, _, _ = await get_search_results(chat_id, search1, max_results=10)
     files1 = [file for file in files1 if re.search(seas1, file.file_name, re.IGNORECASE)]
     
@@ -504,7 +503,6 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     
     seas2 = "season 01" if seas == "season 1" else "season 02" if seas == "season 2" else "season 03" if seas == "season 3" else "season 04" if seas == "season 4" else "season 05" if seas == "season 5" else "season 06" if seas == "season 6" else "season 07" if seas == "season 7" else "season 08" if seas == "season 8" else "season 09" if seas == "season 9" else "s010"
     search2 = f"{search2} {seas2}"
-    BUTTONS2[key] = search2
     files2, _, _ = await get_search_results(chat_id, search2, max_results=10)
     files2 = [file for file in files2 if re.search(seas2, file.file_name, re.IGNORECASE)]
 
@@ -538,7 +536,6 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
             ]
             for file in files
         ]
-    BUTTONS[key] = search
     btn.insert(0, 
         [
            InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
@@ -559,14 +556,9 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
     )
-    if offset != "":
-        btn.append(
-            [InlineKeyboardButton("𝐏𝐀𝐆𝐄", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total)/8)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
-        )
-    else:
-        btn.append(
-            [InlineKeyboardButton(text="𝐍𝐎 𝐌𝐎𝐑𝐄 𝐏𝐀𝐆𝐄𝐒 𝐀𝐕𝐀𝐈𝐋𝐀𝐁𝐋𝐄",callback_data="pages")]
-        )
+    req = query.from_user.id
+    offset = 0
+    btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ ꜰɪʟᴇs ​↭", callback_data=f"next_{req}_{key}_{offset}")])
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
 
 @Client.on_callback_query(filters.regex(r"^qualities#"))
