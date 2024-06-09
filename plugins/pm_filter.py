@@ -389,26 +389,12 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
             ]
             for file in files
         ]
-    BUTTONS[key] = search
     btn.insert(0, 
         [
            InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒🔺", url='https://t.me/Cinema_Kottaka_updates'),
            InlineKeyboardButton("🔺𝐎𝐓𝐓 𝐈𝐍𝐒𝐓𝐆𝐑𝐀𝐌🔺", url='https://t.me/Cinema_Kottaka_updates')
         ]
-    )
-    btn.insert(1, 
-        [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
-        ]
-    )
-    btn.insert(2, 
-        [
-           InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
-        ]
-    )
+    )    
     btn.append([InlineKeyboardButton(text="↭ ʙᴀᴄᴋ ᴛᴏ sᴇᴀsᴏɴ ↭", callback_data=f"fs#{season}#{search}#{key}")])
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
