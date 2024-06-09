@@ -117,7 +117,6 @@ async def next_page(bot, query):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -285,7 +284,6 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -400,7 +398,6 @@ async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -516,13 +513,12 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(1, 
         [
            InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("🔻𝐒𝐄𝐀𝐒𝐎𝐍𝐒🔻", callback_data=f"seasons#{search.replace(' ', '_')}#{key}")
+           InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"seasons#{search.replace(' ', '_')}#{key}")
         ]
     )
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪꜱᴏᴅᴇꜱ", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ꜱᴇᴀꜱᴏɴꜱ", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀꜱ", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -636,7 +632,6 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -751,7 +746,6 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
@@ -1355,7 +1349,6 @@ async def auto_filter(client, msg, spoll=False):
     btn.insert(2, 
         [
            InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{search.replace(' ', '_')}#{key}"),
-           InlineKeyboardButton("ᴇᴘɪsᴏᴅᴇs", callback_data=f"episodes#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("sᴇᴀsᴏɴs", callback_data=f"seasons#{search.replace(' ', '_')}#{key}"),
            InlineKeyboardButton("ʏᴇᴀʀs", callback_data=f"years#{search.replace(' ', '_')}#{key}")
         ]
