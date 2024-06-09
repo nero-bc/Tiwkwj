@@ -428,7 +428,6 @@ async def seasons_cb_handler(client: Client, query: CallbackQuery):
         pass
     
     _, search, key = query.data.split("#")
-    BUTTONS[key] = None
     btn = []
     for i in range(0, len(SEASONS)-1, 2):
         btn.append([
