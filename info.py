@@ -1,6 +1,7 @@
 import re
 from os import environ
 from dotenv import load_dotenv
+from Script import script 
 
 load_dotenv("./dynamic.env", override=True, encoding="utf-8")
 
@@ -56,8 +57,8 @@ SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MOVIES_ZILAA')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', 'True')), False)
 IMDB = is_enabled((environ.get('IMDB', 'False')), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', 'True')), False)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", '📂 Fɪʟᴇ ɴᴀᴍᴇ : <code>{file_name}</code>\n╭─────── • ◆ • ───────╮\n» ɢʀᴏᴜᴘ  :  <a href="https://t.me/Cinema_kottaka_group">𝙲𝚒𝚗𝚎𝚖𝚊 𝙺𝚘𝚝𝚝𝚊𝚔𝚊</a>  «\n» ᴜᴘᴅᴀᴛᴇꜱ :  <a href="https://t.me/Cinema_kottaka_official">𝙲𝚒𝚗𝚎𝚖𝚊 𝙺𝚘𝚝𝚝𝚊𝚔𝚊</a>«\n╰─────── • ◆ • ───────╯')
-BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", '📂 Fɪʟᴇ ɴᴀᴍᴇ : <code>{file_name}</code>\n╭─────── • ◆ • ───────╮\n» ɢʀᴏᴜᴘ  :  <a href="https://t.me/Cinema_kottaka_group">𝙲𝚒𝚗𝚎𝚖𝚊 𝙺𝚘𝚝𝚝𝚊𝚔𝚊</a>  «\n» ᴜᴘᴅᴀᴛᴇꜱ :  <a href="https://t.me/Cinema_kottaka_official">𝙲𝚒𝚗𝚎𝚖𝚊 𝙺𝚘𝚝𝚝𝚊𝚔𝚊</a>«\n╰─────── • ◆ • ───────╯')
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
+BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "🏷 𝖳𝗂𝗍𝗅𝖾: <a href={url}>{title}</a> \n🔮 𝖸𝖾𝖺𝗋: {year} \n⭐️ 𝖱𝖺𝗍𝗂𝗇𝗀𝗌: {rating}/ 10 \n🎭 𝖦𝖾𝗇𝖾𝗋𝗌: {genres} \n\n🎊")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
