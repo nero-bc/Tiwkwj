@@ -156,15 +156,13 @@ async def start(client, message):
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
-    f_caption=files.file_name
     if CUSTOM_FILE_CAPTION:
         try:
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
-    if f_caption is None:
-        f_caption = f"{files.file_name}"
+    if f_caption is None:        
     ok = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
