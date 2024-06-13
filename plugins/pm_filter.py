@@ -1414,12 +1414,12 @@ async def auto_filter(client, msg, spoll=False):
           #  await message.delete()
         except Exception as e:
             logger.exception(e)
-            mat = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(180)
             await mat.delete()
           #  await message.delete()
     else:
-        mat = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))        
+        mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(180)
         await mat.delete()
        # await message.delete()
