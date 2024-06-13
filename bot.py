@@ -79,10 +79,10 @@ class Bot(Client):
         #logging.info(LOG_STR)
         await self.send_message(chat_id=LOG_CHANNEL, text="restarted ❤️‍🩹")
 
-        #app = web.AppRunner(await web_server())
-        #await app.setup()
-        #bind_address = "0.0.0.0"
-        #await web.TCPSite(app, bind_address, PORT).start()       
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()       
 
         await restart_index(self)
     
