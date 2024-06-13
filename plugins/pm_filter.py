@@ -1402,25 +1402,25 @@ async def auto_filter(client, msg, spoll=False):
         try:
             mat = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(180)
+            await asyncio.sleep()
             await mat.delete()
            # await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             mat = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(180)
+            await asyncio.sleep()
             await mat.delete()
           #  await message.delete()
         except Exception as e:
             logger.exception(e)
             mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(180)
+            await asyncio.sleep()
             await mat.delete()
           #  await message.delete()
     else:
         mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        await asyncio.sleep(180)
+        await asyncio.sleep()
         await mat.delete()
        # await message.delete()
    # if spoll:
@@ -1469,7 +1469,7 @@ async def global_filters(client, message, text=False):
                                 disable_web_page_preview=True,
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(60)
+                            await asyncio.sleep()
                             await knd3.delete()
                             await message.delete()
 
@@ -1482,7 +1482,7 @@ async def global_filters(client, message, text=False):
                                 reply_markup=InlineKeyboardMarkup(button),
                                 reply_to_message_id=reply_id
                             )
-                            await asyncio.sleep(60)
+                            await asyncio.sleep()
                             await knd2.delete()
                             await message.delete()
 
@@ -1493,7 +1493,7 @@ async def global_filters(client, message, text=False):
                             caption=reply_text or "",
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(60)
+                        await asyncio.sleep()
                         await knd1.delete()
                         await message.delete()
 
@@ -1505,7 +1505,7 @@ async def global_filters(client, message, text=False):
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
-                        await asyncio.sleep(60)
+                        await asyncio.sleep()
                         await knd.delete()
                         await message.delete()
 
