@@ -474,25 +474,25 @@ def humanbytes(size):
     
 async def send_all(bot, userid, files, ident):
     for file in files:
-        f_caption = file.caption
-        title = file.file_name
-        size = get_size(file.file_size)
-        if CUSTOM_FILE_CAPTION:
-            try:
-                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
-                                                       file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
-            except Exception as e:
-                print(e)
-                f_caption = f_caption
-        if f_caption is None:
-            f_caption = f"{title}"
-        await bot.send_cached_media(
-            chat_id=userid,
-            file_id=file.file_id,
-            caption=f_caption,
-            protect_content=True if ident == "filep" else False,
-            reply_markup=InlineKeyboardMarkup(
+                    f_caption = file.caption
+                    title = file.file_name
+                    size = get_size(file.file_size)
+                    if CUSTOM_FILE_CAPTION:
+                        try:
+                            f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
+                                                                    file_size='' if size is None else size,
+                                                                    file_caption='' if f_caption is None else f_caption)
+                        except Exception as e:
+                            print(e)
+                            f_caption = f_caption
+                    if f_caption is None:
+                        f_caption = f"{title}"
+                    await bot.send_cached_media(
+                        chat_id=userid,
+                        file_id=file.file_id,
+                        caption=f_caption,
+                        protect_content=True if ident == "filep" else False,
+                        reply_markup=InlineKeyboardMarkup(
                           [
                             [                            
                             InlineKeyboardButton('🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥', url=f'https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS')
@@ -501,5 +501,11 @@ async def send_all(bot, userid, files, ident):
                            ]
                         ]
                     )
-        )
+                    )
+    except UserIsBlocked:
+        await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
+    except PeerIdInvalid:
+        await query.answer('Hᴇʏ, Sᴛᴀʀᴛ Bᴏᴛ Fɪʀsᴛ Aɴᴅ Cʟɪᴄᴋ Sᴇɴᴅ Aʟʟ', show_alert=True)
+    except Exception as e:
+        await query.answer('Hᴇʏ, Sᴛᴀʀᴛ Bᴏᴛ Fɪʀsᴛ Aɴᴅ Cʟɪᴄᴋ Sᴇɴᴅ Aʟʟ', show_alert=True)
             
