@@ -1068,6 +1068,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "mfna":
         await query.answer("𝑴𝒂𝒏𝒖𝒂𝒍 𝑭𝒊𝒍𝒕𝒆𝒓 𝒊𝒔 𝑪𝒖𝒓𝒓𝒆𝒏𝒕𝒍𝒚 𝑫𝒊𝒔𝒂𝒃𝒍𝒆𝒅..!!", show_alert=True)
 
+    elif query.data.startswith("send_fall"):
+        temp_var, ident, key, offset = query.data.split("#")
+        search = BUTTONS.get(key)
+        if not search:
+            await query.answer(script.OLD_ALRT_TXT.format(query.from_user.first_name), show_alert=True)
+            return
+        files, n_offset, total = await get_search_results(search, offset=int(offset), filter=True)
+        await send_all(client, query.from_user.id, files, ident)
+        await query.answer(
+            f"Hey {query.from_user.first_name}, All files on this page has been sent successfully to your PM !",
+            show_alert=True)
+        
     elif query.data == "winfo":
         await query.answer("𝑪𝑶𝑶𝑴𝑰𝑵𝑮 𝑺𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑶𝑵...!!", show_alert=True)
 
