@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid, ChatAdminRequired
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL, CUSTOM_FILE_CAPTION
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton
@@ -29,7 +29,6 @@ BANNED = {}
 SMART_OPEN = '“'
 SMART_CLOSE = '”'
 START_CHAR = ('\'', '"', SMART_OPEN)
-SEND_ALL_TEMP = {}
 
 # temp db for banned 
 class temp(object):
@@ -42,7 +41,7 @@ class temp(object):
     U_NAME = None
     B_NAME = None
     SETTINGS = {}
-
+    SEND_ALL_TEMP = {}
 
 async def check_loop_sub(client, message):
     count = 0
@@ -472,7 +471,7 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
-    
+
 async def send_all(bot, userid, files, ident):
     if REQ_CHANNEL and db2().isActive():
         try:
@@ -487,7 +486,7 @@ async def send_all(bot, userid, files, ident):
                 disable_web_page_preview=True
             )
             return "fal"
-
+    
     for file in files:
         f_caption = file.caption
         title = file.file_name
@@ -511,7 +510,7 @@ async def send_all(bot, userid, files, ident):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                        InlineKeyboardButton("Movie Group", url="https://t.me/ARAKAL_THERAVAD_GROUP_01")
+                        InlineKeyboardButton("Movie Group", url="t.me/cinema_kottaka_group")
                         ]
                     ]
                 )
