@@ -110,7 +110,7 @@ async def next_page(bot, query):
     )
     btn.insert(1, 
         [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"send_fall#{key}"),
            InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
         ]
     )
@@ -279,7 +279,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
     )
     btn.insert(1, 
         [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"send_fall#{key}"),
            InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
         ]
     )
@@ -501,7 +501,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
     )
     btn.insert(1, 
         [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"send_fall#{key}"),
            InlineKeyboardButton("🔻𝐄𝐏𝐈𝐒𝐎𝐃𝐄🔻", callback_data=f"episodes#{season}#{search}#{key}")
         ]
     )
@@ -610,7 +610,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
     )
     btn.insert(1, 
         [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"send_fall#{key}"),
            InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
         ]
     )
@@ -724,7 +724,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
     )
     btn.insert(1, 
         [
-           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"sendfiles#{search.replace(' ', '_')}#{key}"),
+           InlineKeyboardButton("🔻𝐒𝐄𝐍𝐃 𝐀𝐋𝐋 𝐅𝐈𝐋𝐄𝐒🔻", callback_data=f"send_fall#{key}"),
            InlineKeyboardButton("🔻𝐋𝐀𝐍𝐆𝐔𝐀𝐆𝐄𝐒🔻", callback_data=f"languages#{search.replace(' ', '_')}#{key}")
         ]
     )
@@ -1087,7 +1087,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         temp_var, userid = query.data.split("#")
         if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
             return await query.answer("This is not Your Request 🚫\n\nDo Search your own ✅", show_alert=True)
-        files = temp.SEND_ALL_TEMP.get(query.from_user.id)
+        files = temp.SEND_ALL_TEMP.get(userid)
         is_over = await send_all(client, query.from_user.id, files)
         if is_over == 'done':
             return await query.answer(f"Hᴇʏ {query.from_user.first_name}, Aʟʟ ғɪʟᴇs ᴏɴ ᴛʜɪs ᴘᴀɢᴇ ʜᴀs ʙᴇᴇɴ sᴇɴᴛ sᴜᴄᴄᴇssғᴜʟʟʏ ᴛᴏ ʏᴏᴜʀ PM !", show_alert=True)
@@ -1311,6 +1311,7 @@ async def auto_filter(client, msg, spoll=False):
         search, files, offset, total_results = spoll
     pre = 'filep' if settings['file_secure'] else 'file'
     key = f"{message.chat.id}-{message.id}"
+    temp.SEND_ALL_TEMP[key] = files
     if settings['button']:
         btn = [
             [
@@ -1418,22 +1419,21 @@ async def auto_filter(client, msg, spoll=False):
         try:
             mat = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[key] = files
            # await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[key] = files
+            
           #  await message.delete()
         except Exception as e:
             logger.exception(e)
             await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[key] = files
+            
           #  await message.delete()
     else:
         await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        temp.SEND_ALL_TEMP[key] = files
+        
        # await message.delete()
    # if spoll:
       #  await msg.message.delete()
