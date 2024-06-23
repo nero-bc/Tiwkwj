@@ -164,7 +164,7 @@ async def next_page(bot, query):
     except MessageNotModified:
         pass
     await query.answer()
-    temp.SEND_ALL_TEMP[query.from_user.id] = files
+    temp.SEND_ALL_TEMP[key] = files
 
 @Client.on_callback_query(filters.regex(r"^spolling"))
 async def advantage_spoll_choker(bot, query):
@@ -299,7 +299,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+BYcim_eiF3swMDhl")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
-    temp.SEND_ALL_TEMP[query.from_user.id] = files
+    temp.SEND_ALL_TEMP[key] = files
     
 @Client.on_callback_query(filters.regex(r"^episodes#"))
 async def episodes_cb_handler(client: Client, query: CallbackQuery):
@@ -511,7 +511,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
 
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     SEASON[key] = files1
-    temp.SEND_ALL_TEMP[query.from_user.id] = files
+    temp.SEND_ALL_TEMP[key] = files
     
 @Client.on_callback_query(filters.regex(r"^qualities#"))
 async def qualities_cb_handler(client: Client, query: CallbackQuery):
@@ -630,7 +630,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+BYcim_eiF3swMDhl")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
-    temp.SEND_ALL_TEMP[query.from_user.id] = files
+    temp.SEND_ALL_TEMP[key] = files
 
 @Client.on_callback_query(filters.regex(r"^languages#"))
 async def languages_cb_handler(client: Client, query: CallbackQuery):
@@ -744,7 +744,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+BYcim_eiF3swMDhl")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
-    temp.SEND_ALL_TEMP[query.from_user.id] = files
+    temp.SEND_ALL_TEMP[key] = files
     
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
@@ -1418,7 +1418,7 @@ async def auto_filter(client, msg, spoll=False):
         try:
             mat = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[query.from_user.id] = files
+            temp.SEND_ALL_TEMP[key] = files
             await asyncio.sleep()
             await mat.delete()
            # await message.delete()
@@ -1426,20 +1426,20 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             mat = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[query.from_user.id] = files
+            temp.SEND_ALL_TEMP[key] = files
             await asyncio.sleep()
             await mat.delete()
           #  await message.delete()
         except Exception as e:
             logger.exception(e)
             mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            temp.SEND_ALL_TEMP[query.from_user.id] = files
+            temp.SEND_ALL_TEMP[key] = files
             await asyncio.sleep()
             await mat.delete()
           #  await message.delete()
     else:
         mat = await message.reply_photo(photo=NOR_IMG, caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-        temp.SEND_ALL_TEMP[query.from_user.id] = files
+        temp.SEND_ALL_TEMP[key] = files
         await asyncio.sleep()
         await mat.delete()
        # await message.delete()
