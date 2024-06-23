@@ -29,6 +29,7 @@ BANNED = {}
 SMART_OPEN = '“'
 SMART_CLOSE = '”'
 START_CHAR = ('\'', '"', SMART_OPEN)
+SEND_ALL_TEMP = {}
 
 # temp db for banned 
 class temp(object):
