@@ -472,7 +472,7 @@ def humanbytes(size):
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
 
-async def send_all(bot, userid, files, ident):
+async def send_all(bot, userid, files):
     if REQ_CHANNEL and db2().isActive():
         try:
             # Check if User is Requested to Join Channel
