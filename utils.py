@@ -473,6 +473,20 @@ def humanbytes(size):
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'B'
     
 async def send_all(bot, userid, files, ident):
+    if REQ_CHANNEL and db2().isActive():
+        try:
+            # Check if User is Requested to Join Channel
+            user = await db2().get_user(userid)
+            if user and user["user_id"] == userid:
+        except Exception as e:
+            logger.exception(e, exc_info=True)
+            await update.reply(
+                text="Something went Wrong.",
+                parse_mode=enums.ParseMode.MARKDOWN,
+                disable_web_page_preview=True
+            )
+            return "fal"
+
     for file in files:
         f_caption = file.caption
         title = file.file_name
@@ -480,26 +494,34 @@ async def send_all(bot, userid, files, ident):
         if CUSTOM_FILE_CAPTION:
             try:
                 f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
-                                                       file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
+                                                        file_size='' if size is None else size,
+                                                        file_caption='' if title is None else title)
             except Exception as e:
                 print(e)
                 f_caption = f_caption
         if f_caption is None:
             f_caption = f"{title}"
-        await bot.send_cached_media(
-            chat_id=userid,
-            file_id=file.file_id,
-            caption=f_caption,
-            protect_content=True if ident == "filep" else False,
-            reply_markup=InlineKeyboardMarkup(
-                          [
-                            [                            
-                            InlineKeyboardButton('🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥', url=f'https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS')
-                          ],[     
-                            InlineKeyboardButton('⭕️ 𝗚𝗘𝗧 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗟𝗜𝗡𝗞𝗦 ⭕️', url="https://t.me/ARAKAL_THERAVAD_GROUP_LINKS"),
-                           ]
+        try:
+            await bot.send_cached_media(
+                chat_id=userid,
+                file_id=file.file_id,
+                caption=f_caption,
+                protect_content=True if ident == "filep" else False,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                        InlineKeyboardButton("Movie Group", url="https://t.me/ARAKAL_THERAVAD_GROUP_01")
                         ]
-                    )
-                    )
-    
+                    ]
+                )
+            )
+        except UserIsBlocked:
+            logger.error(f"Usᴇʀ: {userid} ʙʟᴏᴄᴋᴇᴅ ᴛʜᴇ ʙᴏᴛ. Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ!")
+            return "Usᴇʀ ɪs ʙʟᴏᴄᴋᴇᴅ ᴛʜᴇ ʙᴏᴛ ! Uɴʙʟᴏᴄᴋ ᴛᴏ sᴇɴᴅ ғɪʟᴇs!"
+        except PeerIdInvalid:
+            logger.error("Eʀʀᴏʀ: Pᴇᴇʀ ID ɪɴᴠᴀʟɪᴅ !")
+            return "Pᴇᴇʀ ID ɪɴᴠᴀʟɪᴅ !"
+        except Exception as e:
+            logger.error(f"Eʀʀᴏʀ: {e}")
+            return f"Eʀʀᴏʀ: {e}"
+    return 'done'
