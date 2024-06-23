@@ -1085,7 +1085,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data.startswith("send_fall"):
         temp_var, userid = query.data.split("#")
-        if int(userid) not in [query.message.reply_to_message.from_user.id, 0]:
+        if int(query.from_user.id) not in [query.message.reply_to_message.from_user.id, 0]:
             return await query.answer("This is not Your Request 🚫\n\nDo Search your own ✅", show_alert=True)
         files = temp.SEND_ALL_TEMP.get(query.from_user.id)
         is_over = await send_all(client, query.from_user.id, files, ident)
