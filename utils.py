@@ -477,7 +477,8 @@ async def send_all(bot, userid, files, ident):
         try:
             # Check if User is Requested to Join Channel
             user = await db2().get_user(userid)
-            if user and user["user_id"] == userid:
+            if not user:
+                return "fal"
         except Exception as e:
             logger.exception(e, exc_info=True)
             await update.reply(
