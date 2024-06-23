@@ -489,7 +489,7 @@ async def send_all(bot, userid, files):
             return "fal"
     
     for file in files:
-        f_caption = file.caption
+        f_caption = file.file_name
         title = file.file_name
         size = get_size(file.file_size)
         if CUSTOM_FILE_CAPTION:
