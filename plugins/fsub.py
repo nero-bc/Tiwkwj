@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG
-
 import asyncio
 from pyrogram import Client, enums
 from pyrogram.errors import FloodWait, UserNotParticipant
@@ -162,10 +158,18 @@ async def send_file(client, query, ident, file_id):
             f_caption = f_caption
     if f_caption is None:
         f_caption = f"{title}"
-    await client.send_cached_media(
+    ok = await client.send_cached_media(
         chat_id=query.from_user.id,
         file_id=file_id,
-        caption=f_caption,
-        protect_content=True if ident == 'checksubp' else False
+        caption=f_caption,        
+        reply_markup=InlineKeyboardMarkup(
+                          [
+                            [                            
+                            InlineKeyboardButton('🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥', url=f'https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS')
+                          ],[     
+                            InlineKeyboardButton('⭕️ 𝗚𝗘𝗧 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗟𝗜𝗡𝗞𝗦 ⭕️', url="https://t.me/ARAKAL_THERAVAD_GROUP_LINKS"),
+                           ]
+                        ]
+                    )
     )
    
