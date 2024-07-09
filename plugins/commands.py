@@ -27,7 +27,7 @@ fclient = pymongo.MongoClient(DATABASE_URI)
 fdb = fclient[DATABASE_NAME]
 fcol = fdb['forward']
 
-REACTIONS = ["🔥", "❤️", "😍", "⚡"]
+REACTIONS = ["🔥", "❤️", "😍", "⚡", "👀", "🤌🏻", "💯", "👍🏻", "🤗", "💥", "🙌🏻", "🫶🏻", "💔"]
 
 BATCH_FILES = {}
 
