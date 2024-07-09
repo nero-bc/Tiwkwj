@@ -154,7 +154,7 @@ async def next_page(bot, query):
             ],
         )
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
 
     try:
@@ -296,7 +296,7 @@ async def filter_yearss_cb_handler(client: Client, query: CallbackQuery):
         )
     else:
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     temp.SEND_ALL_TEMP[key] = files
@@ -627,7 +627,7 @@ async def filter_qualities_cb_handler(client: Client, query: CallbackQuery):
         )
     else:
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     temp.SEND_ALL_TEMP[key] = files
@@ -741,7 +741,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         )
     else:
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     await query.edit_message_reply_markup(InlineKeyboardMarkup(btn))
     temp.SEND_ALL_TEMP[key] = files
@@ -1442,7 +1442,7 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="📖 𝑷𝒂𝒈𝒆𝒔 1/1", callback_data="pages")]
         )
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     else:
         key = f"{message.chat.id}-{message.id}"
@@ -1453,7 +1453,7 @@ async def auto_filter(client, msg, spoll=False):
             InlineKeyboardButton(text="𝑵𝒆𝒙𝒕 ⏩", callback_data=f"next_{req}_{key}_{offset}")]
        )
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
