@@ -57,7 +57,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton("🖥 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 🖥", url="https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS")
+            InlineKeyboardButton("🖥 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 🖥", url="https://t.me/+XzVIX3lhqzAyYTQ1")
             ],[
             InlineKeyboardButton('👥 𝑪𝒐𝒎𝒎𝒖𝒏𝒊𝒕𝒚 👥', callback_data='commun'),
             InlineKeyboardButton('🤖 𝑩𝒐𝒕 𝒊𝒏𝒇𝒐 🤖', callback_data='about')
@@ -82,7 +82,7 @@ async def start(client, message):
             await ForceSub(client, message)
             return        
         buttons = [[
-            InlineKeyboardButton("🖥 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 🖥", url="https://t.me/OTT_ARAKAL_THERAVAD_MOVIESS")
+            InlineKeyboardButton("🖥 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 🖥", url="https://t.me/+XzVIX3lhqzAyYTQ1")
             ],[
             InlineKeyboardButton('👥 𝑪𝒐𝒎𝒎𝒖𝒏𝒊𝒕𝒚 👥', callback_data='commun'),
             InlineKeyboardButton('🤖 𝑩𝒐𝒕 𝒊𝒏𝒇𝒐 🤖', callback_data='about')
