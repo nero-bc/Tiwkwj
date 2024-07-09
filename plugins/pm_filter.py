@@ -131,19 +131,19 @@ async def next_page(bot, query):
 
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("◀️ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"📃 {math.ceil((offset) / 8) + 1} / {math.ceil(total / 8)}",
+            [InlineKeyboardButton("⏪ 𝑷𝒓𝒆𝒗𝒊𝒐𝒖𝒔", callback_data=f"next_{req}_{key}_{off_set}"),
+             InlineKeyboardButton(f"📖 𝑷𝒂𝒈𝒆𝒔 {math.ceil((offset) / 8) + 1} / {math.ceil(total / 8)}",
                                   callback_data="pages")]
         )
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"📖 𝑷𝒂𝒈𝒆𝒔 {math.ceil((offset) / 8) + 1} / {math.ceil(total / 8)}", callback_data="pages"),
              InlineKeyboardButton("𝑵𝒆𝒙𝒕 ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
         btn.append(
-                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+m3gwFMuBX9pjYjRl")]
+                    [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
     else:
         btn.append(
@@ -1123,7 +1123,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("🖥 𝗡𝗘𝗪 𝗢𝗧𝗧 𝗨𝗣𝗗𝗔𝗧𝗘𝗦 🖥", url="https://t.me/+XzVIX3lhqzAyYTQ1")
             ],[       
             InlineKeyboardButton('🪬 𝑯𝒐𝒎𝒆 🪬', callback_data='start'),
-            InlineKeyboardButton('🗣 𝑨𝒅𝒎𝒊𝒏', url=f"https://t.me/ARAKAL_THERAVAD_MOVIES_02_bot")
+            InlineKeyboardButton('🗣 𝑨𝒅𝒎𝒊𝒏', url=f"https://t.me/tg_tarzan")
             ],[
             InlineKeyboardButton('🤷‍♂️ 𝐇𝐎𝐖 𝐓𝐎 𝐑𝐄𝐐𝐔𝐄𝐒𝐓 𝐌𝐎𝐕𝐈𝐄𝐒 🤷🏻', callback_data='movereq'),
         
