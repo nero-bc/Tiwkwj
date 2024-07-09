@@ -10,7 +10,7 @@ class script(object):
 
 <b>📌 Sᴜᴘᴘᴏʀᴛ : <a href=https://t.me/+XzVIX3lhqzAyYTQ1> 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 </a></b>
 
-<b>🍂 Oᴡɴᴇʀ : @ARAKAL_THERAVAD_MOVIES_02_bot</b>"""
+<b>🍂 Oᴡɴᴇʀ : @tg_tarzan</b>"""
     
     ABOUT_TXT = """<b>🤖 𝑴𝒚 𝑵𝒂𝒎𝒆 : {}
     
@@ -20,16 +20,16 @@ class script(object):
 
 📡 𝑯𝒐𝒔𝒕𝒆𝒅 𝑶𝒏 : 𝑯𝑬𝑹𝑲𝑼𝑶
 
-👨‍💻 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 : <a href='https://t.me/ARAKAL_THERAVAD_MOVIES_02_bot'>𝑵𝒂𝒛𝒓𝒊𝒚𝒂</a>
+👨‍💻 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 : <a href='https://t.me/tg_tarzan'>тαя𝘇αη</a>
 
 👥 𝑺𝒖𝒑𝒑𝒐𝒓𝒕 𝑮𝒓𝒐𝒖𝒑 : <a href=https://t.me/+Q8PH1M-vZzk2YmM1> 𝐆𝐑𝐎𝐔𝐏 </a>
 
 📢 𝑼𝒑𝒅𝒂𝒕𝒆 𝑪𝒉𝒂𝒏𝒏𝒆𝒍 : <a href=https://t.me/+XzVIX3lhqzAyYTQ1> 𝐎𝐓𝐓 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 </a></b>"""
 
     AUTOFILTER_TXT = """<b>
- Bro Or Sis, ഈ ഒരു ബോട്ട് @ARAKAL_THERAVAD_GROUP_01 ൻ്റെ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ ᴠ1 ആണ്, ബോട്ട് Owner ഡെ പർമ്മിഷൻ ഇല്ലാതെ മറ്റു ഗ്രൂപ്പുകളിൽ ഒന്നും ഈ ബോട്ടിനെ യൂസ് ചെയ്യാൻ കഴിയില്ല..!!  🤗⚠
+ Bro Or Sis, ഈ ഒരു ബോട്ട് <a href=https://t.me/+Q8PH1M-vZzk2YmM1> 𝐆𝐑𝐎𝐔𝐏 </a> ൻ്റെ Aᴜᴛᴏ Fɪʟᴛᴇʀ Bᴏᴛ ᴠ1 ആണ്, ബോട്ട് Owner ഡെ പർമ്മിഷൻ ഇല്ലാതെ മറ്റു ഗ്രൂപ്പുകളിൽ ഒന്നും ഈ ബോട്ടിനെ യൂസ് ചെയ്യാൻ കഴിയില്ല..!!  🤗⚠
 
-️📌 𝗔𝗻𝘆 𝗛𝗲𝗹𝗽 𝗣𝗹𝗲𝗮𝘀𝗲 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗔𝗱𝗺𝗶𝗻 : @ARAKAL_THERAVAD_MOVIES_02_bot</b>"""
+️📌 𝗔𝗻𝘆 𝗛𝗲𝗹𝗽 𝗣𝗹𝗲𝗮𝘀𝗲 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗔𝗱𝗺𝗶𝗻 : @tg_tarzan</b>"""
 
     BOTINFO_TXT = """<b>𝖧𝖾𝗒 𝖡𝗋𝗈 𝖨𝖺𝗆 𝖧𝖺𝗉𝗉𝗒 🖤 𝖳𝗈 𝖧𝖺𝗏𝖾 𝖸𝗈𝗎
  
@@ -68,7 +68,7 @@ class script(object):
 𝖣𝗈𝗇'𝗍 𝖴𝗌𝖾 𝖲𝗒𝗆𝖻𝗈𝗅𝗌 𝖶𝗁𝗂𝗅𝖾 𝖱𝖾𝗊𝗎𝖾𝗌𝗍 𝖬𝗈𝗏𝗂𝖾𝗌 𝗅𝗂𝗄𝖾 (+:;'!-|...𝖾𝗍𝖼)
 
 𝖨𝖿 𝖸𝗈𝗎 𝖣𝗈𝗇'𝗍 𝖦𝖾𝗍 𝖬𝗈𝗏𝗂𝖾𝗌 𝖠𝗇𝖽 𝖲𝖾𝗋𝗂𝖾𝗌⌛️
-𝖢𝗈𝗇𝗍𝖺𝖼𝗍 𝖠𝖽𝗆𝗂𝗇 - @ARAKAL_THERAVAD_MOVIES_02_bot
+𝖢𝗈𝗇𝗍𝖺𝖼𝗍 𝖠𝖽𝗆𝗂𝗇 - @tg_tarzan
 
 𝖬𝗈𝗏𝗂𝖾𝗌 𝖱𝖾𝗊𝗎𝖾𝗌𝗍𝗂𝗇𝗀 𝖥𝗈𝗋𝗆𝖺𝗍
 𝖪𝗎𝗋𝗎𝗉 𝖬𝗈𝗏𝗂𝖾❌
