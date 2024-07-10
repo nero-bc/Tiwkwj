@@ -1439,10 +1439,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         offset = 0    
         
-    if offset== 0:
-        btn.append(
-            [InlineKeyboardButton(text="📖 𝑷𝒂𝒈𝒆𝒔 1/1", callback_data="pages")]
-        )
+    if offset== 0:        
         btn.append(
                     [InlineKeyboardButton(text="🎬 𝑹𝑬𝑸𝑼𝑬𝑺𝑻 𝑮𝑹𝑶𝑼𝑷 🎬", url=f"https://t.me/+XzVIX3lhqzAyYTQ1")]
         )
