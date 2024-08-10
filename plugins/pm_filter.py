@@ -1374,23 +1374,24 @@ async def ai_spell_check(wrong_name):
         movie_list.remove(movie)
     return
 
-async def auto_filter(client, msg, spoll=False):
+async def auto_filter(client, msg, spoll=False , pm_mode = False):    
     if not spoll:
         message = msg
+        search = message.text
+        chat_id = message.chat.id
         settings = await get_settings(message.chat.id)
-        if message.text.startswith("/"): return  # ignore commands
-        if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
-            return
-        if len(message.text) < 100:
-            search = message.text
-            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
-
-            if not files:
-                if settings["spell_check"]:
-                    return await advantage_spell_chok(msg)
-                else:
-                    return
-        else:
+        files, offset, total_results = await get_search_results(search)
+        if not files:
+            if settings["spell_check"]:                
+                ai_sts = await msg.reply_text('<b>Ai is Cheking For Your Spelling. Please Wait.</b>')
+                is_misspelled = await ai_spell_check(search)
+                if is_misspelled:
+                    await ai_sts.edit(f'<b>Ai Suggested <code>{is_misspelled}</code>\nSo Im Searching for <code>{is_misspelled}</code></b>')                    
+                    msg.text = is_misspelled
+                    #await ai_sts.delete()
+                    return await auto_filter(client, msg)                
+                #await ai_sts.delete()
+                return await advantage_spell_chok(msg)
             return
     else:
         settings = await get_settings(msg.message.chat.id)
