@@ -8,32 +8,6 @@
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+AC+Filter+Bot!)
 </p>
 
-## Main Feature 
-<b>
-  
-- [x] Premium Plan Feature 
-- [x] Refer To Get Premium
-- [x] Save Restricted Content & On / Off
-- [x] Custom Force Subscribe
-- [x] Rename Feature & On / Off
-- [x] Premium And Refer On / Off 
-- [x] Stream Feature On / Off 
-- [x] Url Shortner On / Off Feature 
-- [x] Pm Search On / Off
-- [x] Request To Join Force Subscribe 
-- [x] Custom Stream
-- [x] Stream Feature With Many Player Support 
-- [x] Language & Season & Quality & Episode & Year Choose Option
-- [x] Auto Approve & On / Off
-- [x] Custom Url Shortner Support
-- [x] Token Verification 
-- [x] Send All Button 
-- [x] Custom Tutorial Button
-- [x] Bot Pm File Auto Delete 
-
-Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Update Regarding Repo.</b>
-
-### How To Deploy : [Video Tutorial](https://youtu.be/J5tiWdc_AWM)
 
 ## Commands
 ```
