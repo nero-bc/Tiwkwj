@@ -115,11 +115,11 @@ class script(object):
     
 𝖢𝗁𝖾𝖼𝗄 𝖡𝖾𝗅𝗈𝗐 𝖧𝖾𝗅𝗉 𝖥𝗎𝗇𝖼𝗍𝗂𝗈𝗇𝗌🤍</b>"""
   
-    CUSTOM_FILE_CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
+    CUSTOM_FILE_CAPTION = """<b>𝐻𝑒𝑙𝑙𝑜 👋 {mention}</b>😍
 
-╭────── • ◆ • ──────╮
+📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
+
 ⚙️ Fɪʟᴇ Sɪᴢᴇ :  {file_size}
-╰────── • ◆ • ──────╯
 
  ╔═══ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ═══╗
  ♻️ 𝑱𝑶𝑰𝑵 :- <a href=https://t.me/+Q8PH1M-vZzk2YmM1> 𝐆𝐑𝐎𝐔𝐏 </a>
