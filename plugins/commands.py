@@ -101,10 +101,10 @@ async def start(client, message):
         return
     kk, file_id = message.command[1].split("_", 1) if "_" in message.command[1] else (False, False)
     pre = ('checksubp' if kk == 'filep' else 'checksub') if kk else False
-
-    status = await ForceSub(client, message, file_id=file_id, mode=pre)
+    deep_link = message.text.split(None, 1)[1]
+    def_url = f"https://t.me/{temp.U_NAME}?start={deep_link}"
+    status = await ForceSub(client, message, file_id=def_url)
     if not status:
-        return
 
     data = message.command[1]
     try:
