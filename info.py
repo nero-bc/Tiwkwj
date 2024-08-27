@@ -45,11 +45,14 @@ DATABASE_URI4 = environ.get('DATABASE_URI4', "mongodb+srv://pro:prokalki4.rhmc9.
 DATABASE_URI5 = environ.get('DATABASE_URI5', "mongodb+srv://pls:pls@kalki5.vneogwq.mongodb.net/?retryWrites=true&w=majority&appName=kalki5")
                             
 # FSUB
-auth_channel = environ.get('AUTH_CHANNEL')
+auth_channel = environ.get('-1002170119688')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 # Set to False inside the bracket if you don't want to use Request Channel else set it to Channel ID
-REQ_CHANNEL=environ.get("REQ_CHANNEL","-1002224817467")
+
+REQ_CHANNEL=environ.get("REQ_CHANNEL", "-1002149382278")
 REQ_CHANNEL = (int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL) else False) if REQ_CHANNEL is not None else None
+REQ_CHANNEL2=environ.get("REQ_CHANNEL2", "-1002204112835")
+REQ_CHANNEL2 = (int(REQ_CHANNEL2) if REQ_CHANNEL2 and id_pattern.search(REQ_CHANNEL2) else False) if REQ_CHANNEL2 is not None else None
 JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 
 # Others
