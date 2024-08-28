@@ -32,7 +32,7 @@ NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/5de2a87af196bcd866b7f.
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7040444713').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002157654949').split()]
-FORCE_SUB_CHANNEL = environ.get("FORCE_SUB_CHANNEL", "-1002166880535"),
+FORCE_SUB_CHANNEL = environ.get("FORCE_SUB_CHANNEL", "-1002149382278"),
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_grp = environ.get('AUTH_GROUP')
