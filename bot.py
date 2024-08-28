@@ -59,17 +59,28 @@ class Bot(Client):
         temp.BANNED_USERS = b_users
         temp.BANNED_CHATS = b_chats
         await super().start()        
-        if REQ_CHANNEL == None:
-            with open("./dynamic.env", "wt+") as f:
-                req = await JoinReqs().get_fsub_chat()
-                if req is None:
-                    req = False
-                else:
-                    req = req['chat_id']
-                f.write(f"REQ_CHANNEL={req}\n")
-            logging.info("Loading REQ_CHANNEL from database...")
-            os.execl(sys.executable, sys.executable, "bot.py")
-            return        
+        if REQ_CHANNEL1:
+            try:
+                _link = await self.create_chat_invite_link(chat_id=REQ_CHANNEL1, creates_join_request=True)
+                self.req_link1 = _link.invite_link
+            except Exception as e:
+                logging.info(f"Make Sure REQ_CHANNEL 1 ID is correct or {e}")
+        if REQ_CHANNEL2:
+            try:
+                _link = await self.create_chat_invite_link(chat_id=REQ_CHANNEL2, creates_join_request=True)
+                self.req_link2 = _link.invite_link
+            except Exception as e:
+                logging.info(f"Make Sure REQ_CHANNEL 2 ID is correct or {e}")
+        if FORCE_SUB_CHANNEL:
+            try:
+                link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                    link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
+                self.invitelink = link
+            except Exception as e:
+                logging.info(f"Make Sure FORCE_SUB_CHANNEL ID is correct or {e}")
+                        
         me = await self.get_me()
         temp.ME = me.id
         temp.U_NAME = me.username
