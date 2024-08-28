@@ -14,6 +14,9 @@ def is_enabled(value, default):
     else:
         return default
 
+req1 = environ.get('REQ_CHANNEL1', '-1002149382278')
+req2 = environ.get('REQ_CHANNEL2', '-1002204112835')
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '26305156'))
@@ -27,12 +30,16 @@ PICS = (environ.get('PICS', 'https://telegra.ph/file/5de2a87af196bcd866b7f.jpg')
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/5de2a87af196bcd866b7f.jpg")
 
 # Admins, Channels & Users
-OWNER_ID = environ.get('OWNER_ID', '')
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1297128957 1509123054').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002208570147').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7040444713').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002157654949').split()]
+FORCE_SUB_CHANNEL = environ.get("FORCE_SUB_CHANNEL", "-1002166880535"),
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_grp = environ.get('AUTH_GROUP')
+AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
+
+REQ_CHANNEL1 = int(req1) if req1 and id_pattern.search(req1) else None
+REQ_CHANNEL2 = int(req2) if req2 and id_pattern.search(req2) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 
 # MongoDB information
